@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="icon" href="../img/Musify_favicon.png">
+    <title>Iscriviti - Musify</title>
+</head>
+
+<body>
+
+    <div id="head">
+        <img src="../img/Musify_small.svg" alt="Musify logo">
+    </div>
+
+    <hr>
+
+    <div id="frame">
+        <h2 class="Type__TypeElement-goli3j-0 kCSAnu Header__Title-nt28l4-1 bkLUvq">Iscriviti gratuitamente per iniziare ad ascoltare.</h2>
+
+        <form method="POST">
+            <div class="row">
+                <label for="email">Qual è il tuo indirizzo e-mail?</label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="Inserisci la tua e-mail." required="" value="">
+            </div>
+            <div class="row">
+                <label for="confirm">Conferma la tua e-mail</label>
+                <input class="form-control" type="email" id="confirm" name="confirm" placeholder="Inserisci nuovamente la tua e-mail." required="" value="">
+            </div>
+            <div class="row">
+                <label for="password">Crea una password</label>
+                <input class="form-control" type="password" id="password" pattern=".{8,}" name="password" placeholder="Crea una password." required="" value=""></div>
+            <div class="row">
+                <label for="displayname">Come ti dobbiamo chiamare?</label>
+                <input class="form-control" type="text" id="displayname" name="displayname" placeholder="Inserisci un nome del profilo." required="" value="">
+            </div>
+            <div class="row">
+                <div>
+                    <label>Qual è la data del tuo compleanno?</label>
+                </div>
+
+                <div class="data">
+                    <div id="div-year">
+                        <label for="year">Anno</label>
+                        <input class="form-control" type="text" id="year" inputmode="numeric" maxlength="4" name="year" pattern="(19[0-9]{2})|(200)[0-7]" placeholder="AAAA" required="" value="">
+                    </div>
+
+                    <div id="div-month">
+                        <label for="month">Mese</label>
+                        <select class="form-control" id="month" name="month" required="" class="Select-sc-3qvhho-0 bxcbdF Month__StyledFormSelect-sc-1ghcdys-1 fLxgJu">
+                            <option selected="" disabled="" value="">Mese</option>
+                            <option value="01">Gennaio</option>
+                            <option value="02">Febbraio</option>
+                            <option value="03">Marzo</option>
+                            <option value="04">Aprile</option>
+                            <option value="05">Maggio</option>
+                            <option value="06">Giugno</option>
+                            <option value="07">Luglio</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Settembre</option>
+                            <option value="10">Ottobre</option>
+                            <option value="11">Novembre</option>
+                            <option value="12">Dicembre</option>
+                        </select>
+
+                    </div>
+
+                    <div id="div-day">
+                        <label for="day">Giorno</label>
+                        <input class="form-control" type="text" id="day" inputmode="numeric" maxlength="2" name="day" pattern="((0?[1-9])|([12][0-9])|(3[01]))" placeholder="GG" required="" value="">
+                    </div>
+                </div>
+            </div>
+
+            <fieldset role="radiogroup">
+                <legend>Di che sesso sei?</legend>
+                <div id="gender">
+                    <div>
+                        <input class="" type="radio" id="gender_option_male" name="gender" required="" value="male">
+                        <label for="gender_option_male">Maschio</label>
+                    </div>
+                    <div>
+                        <input class="" type="radio" id="gender_option_female" name="gender" required="" value="female">
+                        <label for="gender_option_female">Femmina</label>
+                    </div>
+                    <div>
+                        <input class="" type="radio" id="gender_option_nonbinary" name="gender" required="" value="neutral">
+                        <label for="gender_option_nonbinary">Preferisco non specificare</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div id="submit-button">
+                <button type="submit" id="submit" class="btn">
+                            Iscriviti
+                        </button>
+            </div>
+            <div id="login">
+                <p>Hai un account?
+                    <a href="../index.html">Accedi</a>.
+                </p>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

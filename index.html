@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="img/Musify_favicon.png">
+    <title>Accedi - Musify</title>
+</head>
+
+<body>
+
+    <div id="head">
+        <img src="img/Musify_small.svg" alt="Musify logo">
+    </div>
+
+    <hr>
+
+    <div id="frame">
+        <h4>Per continuare, accedi a Musify</h4>
+
+        <form action="html/home.html">
+            <div class="row">
+                <label for="login-username" class="control-label">
+                    Indirizzo e-mail o username
+                  </label>
+                <input type="text" class="form-control" id="login-username" placeholder="Indirizzo e-mail o username" required="" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus">
+            </div>
+            <div class="row">
+                <label for="login-password">
+                      Password
+                    </label>
+                <input type="password" id="login-password" placeholder="Password" class="form-control" required="" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="autofocus">
+                <div id="password-status">
+                    <label class="control-label-validation" for="login-password">Inserisci la tua password.</label>
+                </div>
+            </div>
+
+            <div id="submit-button">
+                <input type="submit" id="submit" class="btn" alt="Accedi" title="Accedi" value="Accedi">
+            </div>
+        </form>
+
+        <hr>
+
+        <div class="row">
+            <div id="no-account" class="row">
+                <h3>Non hai un account?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <a href="html/signup.html " id="sign-up-link" class="btn fullwidth" title="Iscriviti a Musify">Iscriviti a Musify</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
