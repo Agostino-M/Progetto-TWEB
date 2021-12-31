@@ -2,7 +2,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home - Musify</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/home.css">
@@ -49,6 +48,17 @@
                         <path d="M3 6l5 5.794L13 6z"></path>
                     </svg>
                 </button>
+
+                <div class="user-settings-widget">
+                    <ul tabindex="0" data-depth="0" class="user-settings-list">
+                        <li>
+                            <button class="user-logout-button">
+                                <span class="flex-1 text-format-14">Esci</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
             </header>
         </div>
         <nav class="main-left-navbar">
@@ -74,7 +84,7 @@
                         </a>
                     </li>
                     <li class="navbar-list-item">
-                        <a aria-current="page" class="link-section link-section1"
+                        <a class="link-section link-section-active"
                            draggable="false" href="/search">
                             <svg height="24" width="24" class="search-icon"
                                  viewBox="0 0 24 24">
@@ -125,7 +135,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <span class="saved-tracks-title list-item-title1">Brani preferiti</span>
+                        <span class="flex-1 list-item-title1">Brani preferiti</span>
                     </a>
                 </div>
             </div>

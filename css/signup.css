@@ -1,7 +1,9 @@
+@import "fonts.css";
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: spotify-circular, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #222326;
@@ -59,11 +61,11 @@ legend {
     padding: 6px 12px;
     font-size: 16px;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    border: 0px;
+    border: 0;
     font-weight: 400;
     box-sizing: border-box;
     border-radius: 4px;
-    box-shadow: inset 0 0 0 1px var(--essential-subdued, #878787);
+    box-shadow: inset 0 0 0 1px;
 }
 
 #submit {
@@ -84,7 +86,6 @@ legend {
     border-radius: 500px;
     transition-property: background-color, border-color, color, box-shadow, filter;
     transition-duration: 1s;
-    border-width: 0;
     letter-spacing: 2px;
     min-width: 160px;
     text-transform: uppercase;
@@ -100,9 +101,6 @@ legend {
     margin-bottom: 10px;
 }
 
-
-/*non presenti in index.css*/
-
 select {
     color: rgb(83, 83, 83);
 }
@@ -113,7 +111,6 @@ select {
 
 .data {
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
 }
 
@@ -146,6 +143,5 @@ fieldset {
     line-height: 20px;
     letter-spacing: 0.25px;
     box-sizing: border-box;
-    margin-bottom: 0px;
     font-weight: 400;
 }
