@@ -119,7 +119,9 @@ a {
     transition-timing-function: linear
 }
 
-.li-item:focus, .li-item:hover, .link-item:focus, .link-item:hover, .link-section:focus, .link-section:hover {
+.li-item:focus, .li-item:hover,
+.link-item:focus, .link-item:hover,
+.link-section:focus, .link-section:hover {
     color: #ffffff;
 }
 

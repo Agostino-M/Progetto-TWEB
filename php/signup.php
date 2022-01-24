@@ -52,8 +52,8 @@
 
         <div class="row">
             <label for="username">Come ti dobbiamo chiamare?</label>
-            <input class="form-control" type="text" id="username" name="displayname"
-                   placeholder="Inserisci un nome del profilo." title="Inserisci un nome del profilo." required>
+            <input class="form-control" type="text" id="username" name="displayname" required maxlength="20"
+                   placeholder="Inserisci un nome del profilo." title="Inserisci un nome del profilo.">
             <label id="error-username" class="control-label-validation" for="username">Errore</label>
         </div>
 

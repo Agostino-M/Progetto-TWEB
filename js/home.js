@@ -1515,9 +1515,13 @@ function play_playlist(playlist) {
     reset_queue();
     $.getJSON("./requests.php", "&username=" + username + "&type=" + "songs_into_pl" + "&pl_name=" + playlist, function (json) {
         json.songs.forEach(function (item) {
-            queue.push({
-                'name': item.name, 'artist': item.artist, 'album': item.album
-            });
+            queue.push(
+                {
+                    'name': item.name,
+                    'artist': item.artist,
+                    'album': item.album
+                }
+            );
         });
     });
     if (shuffle) {
