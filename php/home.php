@@ -1,11 +1,19 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
+    //if the username is set, the html will be displayed
     ?>
     <!DOCTYPE html>
     <html lang="en">
 
     <head>
+        <!--    Author: Agostino Messina
+            home.php is the main page of the site.
+            Consists of a music library made up of several sections.
+            On the left there is a nav bar for navigating between sections (Home, Library, Tracks, Playlists).
+            In the bottom there is the music player, while in the top there is a search and settings bar.
+            Finally, in the center there is the main content of the selected section.
+        -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +34,10 @@ if (isset($_SESSION['username'])) {
                         <div class="topbar-content">
                             <div class="topbar-content-search">
                                 <form>
-                                    <input class="search-input text-format-14" maxlength="800"
-                                           placeholder="Artisti, brani o playlist">
+                                    <label>
+                                        <input class="search-input text-format-14" maxlength="800"
+                                               placeholder="Artisti, brani o playlist">
+                                    </label>
                                 </form>
                                 <div class="search-inside">
                                 <span class="search-inside-span">
@@ -43,11 +53,24 @@ if (isset($_SESSION['username'])) {
                     </div>
 
                     <button class="profile-button" type="button">
-                        <figure class="profile-button-avatar" title="Agostino Messina">
+                        <span class="profile-button-avatar" title="Agostino Messina">
                             <img draggable="false"
                                  src="https://cdn.motor1.com/images/mgl/pElZo/s1/4x3/tequila-lanciafiamme-e-tavole-da-surf-tutte-le-pazzie-di-elon-musk.webp"
                                  alt="Agostino Messina" class="image profile-avatar-img">
-                        </figure>
+                        </span>
+                        <?php
+                        if ($_SESSION['is_admin'] == true) {
+                            ?>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="admin-verified"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.6596l-3.38079 1.8543-1.84158-3.3877-3.84662-.2679.28231-3.8456-3.09118-2.3049 2.31658-3.0825-1.3543-3.61028 3.61534-1.34071.81255-3.76935 3.76627.82672L12 0l2.7214 2.73168 3.7663-.82672.8125 3.76935 3.6154 1.34071-1.3543 3.61028 2.3166 3.0825-3.0912 2.3049.2823 3.8456-3.8466.2679-1.8416 3.3877L12 21.6596z"
+                                      fill="#2E77D0"></path>
+                                <path d="M16.8637 7.41226l-6.6435 7.77824-2.80421-3.2842-.4935.5775 3.29771 3.8617 7.2135-8.44649-.57-.48675z"
+                                      fill="#fff"></path>
+                            </svg>
+                            <?php
+                        }
+                        ?>
                         <span class="user-widget-name list-item-title1"
                               data-testid="user-widget-name"><?= ucwords($_SESSION['username']) ?></span>
                         <svg height="16" width="16" class="user-widget-svg"
@@ -61,6 +84,21 @@ if (isset($_SESSION['username'])) {
                             <li>
                                 <button class="transparent-button">
                                     <span class="text-format-14">Esci</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="transparent-button">
+                                    <a href="http://validator.w3.org/check/referer" target="_blank">
+                                        <img width="88"
+                                             src="https://upload.wikimedia.org/wikipedia/commons/b/bb/W3C_HTML5_certified.png"
+                                             alt="Valid HTML5!">
+                                    </a>
+                            </li>
+                            <li>
+                                <button class="transparent-button">
+                                    <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">
+                                        <img src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+                                    </a>
                                 </button>
                             </li>
                         </ul>
@@ -107,14 +145,14 @@ if (isset($_SESSION['username'])) {
                     <div class="navbar-playlist">
                         <hr>
                         <button class="create-playlist-button navbar-playlist-item">
-                            <div class="create-playlist-button-border">
-                                <div class="create-playlist-button-image">
+                            <span class="create-playlist-button-border">
+                                <span class="create-playlist-button-image">
                                     <svg height="12" width="12" viewBox="0 0 16 16">
                                         <path d="M14 7H9V2H7v5H2v2h5v5h2V9h5z"></path>
                                         <path fill="none" d="M0 0h16v16H0z"></path>
                                     </svg>
-                                </div>
-                            </div>
+                                </span>
+                            </span>
                             <span class="list-item-title">Crea playlist</span>
                         </button>
 
@@ -140,39 +178,32 @@ if (isset($_SESSION['username'])) {
                         <div class="now-playingbar-firstcolumn">
                             <div class="now-playing-widget">
                                 <div class="now-playing-cover">
-                                    <a draggable="false"
-                                       href="/user/11141439451/collection?uid=374a02cc64fc337b795c&amp;uri=spotify%3Atrack%3A5XAPpyIoYF3QXP34Hv8Pvx"
-                                       style="border: none;">
-
-                                        <div class="cover-art shadow"
-                                             style="width: 56px; height: 56px;">
-                                            <div class="icon">
-                                                <svg width="80" height="81" viewBox="0 0 80 81"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <title>Playlist Icon</title>
-                                                    <path d="M25.6 11.565v45.38c-2.643-3.27-6.68-5.37-11.2-5.37-7.94 0-14.4 6.46-14.4 14.4s6.46 14.4 14.4 14.4 14.4-6.46 14.4-14.4v-51.82l48-10.205V47.2c-2.642-3.27-6.678-5.37-11.2-5.37-7.94 0-14.4 6.46-14.4 14.4s6.46 14.4 14.4 14.4S80 64.17 80 56.23V0L25.6 11.565zm-11.2 65.61c-6.176 0-11.2-5.025-11.2-11.2 0-6.177 5.024-11.2 11.2-11.2 6.176 0 11.2 5.023 11.2 11.2 0 6.174-5.026 11.2-11.2 11.2zm51.2-9.745c-6.176 0-11.2-5.024-11.2-11.2 0-6.174 5.024-11.2 11.2-11.2 6.176 0 11.2 5.026 11.2 11.2 0 6.178-5.026 11.2-11.2 11.2z"
-                                                          fill="currentColor" fill-rule="evenodd"></path>
-                                                </svg>
-                                            </div>
-                                            <img draggable="false"
-                                                 src="https://i.scdn.co/image/ab67616d00004851dcff3103179d992594a227db"
-                                                 alt=""
-                                                 class="image cover-art-image">
+                                    <div class="cover-art shadow"
+                                         style="width: 56px; height: 56px;">
+                                        <div class="icon">
+                                            <svg width="80" height="81" viewBox="0 0 80 81"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <title>Playlist Icon</title>
+                                                <path d="M25.6 11.565v45.38c-2.643-3.27-6.68-5.37-11.2-5.37-7.94 0-14.4 6.46-14.4 14.4s6.46 14.4 14.4 14.4 14.4-6.46 14.4-14.4v-51.82l48-10.205V47.2c-2.642-3.27-6.678-5.37-11.2-5.37-7.94 0-14.4 6.46-14.4 14.4s6.46 14.4 14.4 14.4S80 64.17 80 56.23V0L25.6 11.565zm-11.2 65.61c-6.176 0-11.2-5.025-11.2-11.2 0-6.177 5.024-11.2 11.2-11.2 6.176 0 11.2 5.023 11.2 11.2 0 6.174-5.026 11.2-11.2 11.2zm51.2-9.745c-6.176 0-11.2-5.024-11.2-11.2 0-6.174 5.024-11.2 11.2-11.2 6.176 0 11.2 5.026 11.2 11.2 0 6.178-5.026 11.2-11.2 11.2z"
+                                                      fill="currentColor" fill-rule="evenodd"></path>
+                                            </svg>
                                         </div>
-                                    </a>
+                                        <img draggable="false"
+                                             src="https://i.scdn.co/image/ab67616d00004851dcff3103179d992594a227db"
+                                             alt=""
+                                             class="image cover-art-image">
+                                    </div>
                                 </div>
                                 <div class="now-playing-song-info">
                                     <div class="song-info-title text-format-14"
                                          data-testid="context-item-info-title" dir="auto">
                                     <span draggable="true">
-                                        <a draggable="false" id="actual-song-name"
-                                           href="/album/2VrpzWjnsiELWKXOJAFhme"></a>
+                                        <a draggable="false" id="actual-song-name"></a>
                                     </span>
                                     </div>
                                     <div class="song-info-artist text-format-11">
                                     <span draggable="true">
-                                        <a draggable="false" href="/artist/1VPmR4DJC1PlOtd0IADAO0"
-                                           id="actual-artist"></a>
+                                        <a draggable="false" id="actual-artist"></a>
                                     </span>
                                     </div>
                                 </div>
@@ -188,7 +219,7 @@ if (isset($_SESSION['username'])) {
                             <div class="player-controls">
                                 <div class="player-controls-buttons">
                                     <div class="player-controls-left">
-                                        <button class="shuffle-button shuffle-button-active">
+                                        <button class="shuffle-button">
                                             <svg height="16" width="16" viewBox="0 0 16 16"
                                                  class="">
                                                 <path d="M4.5 6.8l.7-.8C4.1 4.7 2.5 4 .9 4v1c1.3 0 2.6.6 3.5 1.6l.1.2zm7.5 4.7c-1.2 0-2.3-.5-3.2-1.3l-.6.8c1 1 2.4 1.5 3.8 1.5V14l3.5-2-3.5-2v1.5zm0-6V7l3.5-2L12 3v1.5c-1.6 0-3.2.7-4.2 2l-3.4 3.9c-.9 1-2.2 1.6-3.5 1.6v1c1.6 0 3.2-.7 4.2-2l3.4-3.9c.9-1 2.2-1.6 3.5-1.6z"></path>
@@ -221,28 +252,6 @@ if (isset($_SESSION['username'])) {
                                         </button>
                                     </div>
                                 </div>
-
-                                <div class="playback-bar">
-                                    <div class="playback-time-elapsed text-format-11">
-                                        1:50
-                                    </div>
-                                    <div class="range-input">
-                                        <label class="hidden-visually">Modifica stato
-                                            <input type="range" min="0" max="145" step="5"
-                                                   value="110">
-                                        </label>
-                                        <div class="progress-bar"
-                                             style="--progress-bar-transform:75.8621%;">
-                                            <div class="progress-bar-background">
-                                                <div class="progress-bar-container">
-                                                    <div class="progress-bar-bar"></div>
-                                                </div>
-                                                <div class="progress-bar-final-circle"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="playback-duration text-format-11">2:25</div>
-                                </div>
                             </div>
                         </div>
 
@@ -259,20 +268,9 @@ if (isset($_SESSION['username'])) {
                                             <path d="M10.04 5.984l.658-.77q.548.548.858 1.278.31.73.31 1.54 0 .54-.144 1.055-.143.516-.4.957-.259.44-.624.805l-.658-.77q.825-.865.825-2.047 0-1.183-.825-2.048zM0 11.032v-6h2.802l5.198-3v12l-5.198-3H0zm7 1.27v-8.54l-3.929 2.27H1v4h2.071L7 12.302z"></path>
                                         </svg>
                                     </button>
-                                    <div class="range-input">
-                                        <label class="hidden-visually">Modifica volume
-                                            <input type="range" min="0" max="1" step="0.1"
-                                                   value="0.3225806451612903">
-                                        </label>
-                                        <div class="progress-bar" style="--progress-bar-transform:32.2581%;">
-                                            <div class="progress-bar-background">
-                                                <div class="progress-bar-container">
-                                                    <div class="progress-bar-bar"></div>
-                                                </div>
-                                                <div class="progress-bar-final-circle"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <label>
+                                        <input class="volume-slider" type="range" value="100">
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -281,6 +279,9 @@ if (isset($_SESSION['username'])) {
             </div>
 
             <div class="main-central-view">
+                <div id="page-loading">
+                    <img src="../img/spinner.gif" alt="loading">
+                </div>
                 <div class="create-playlist-widget">
                     <form action="javascript:void(0);">
                         <label for="playlist-name" class="playlist-name-label">
@@ -296,17 +297,16 @@ if (isset($_SESSION['username'])) {
                 </div>
 
                 <main class="main-view-container">
-
                 </main>
             </div>
         </div>
     </div>
-    </body>
     <script src="../js/home.js" type="text/javascript"></script>
-
+    </body>
     </html>
     <?php
 } else {
+    //if the username is not set, he will be redirected to login
     header("Location: ../index.php");
 }
 ?>

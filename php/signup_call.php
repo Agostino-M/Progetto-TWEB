@@ -8,6 +8,7 @@ try {
     $birth_date = $db->quote($_POST['birth_date']);
     $gender = $db->quote($_POST['gender']);
 
+    //check if all fields are set
     if (!isset($_POST['username']) ||
         !isset($_POST['email']) ||
         !isset($_POST['password']) ||
@@ -15,10 +16,10 @@ try {
         !isset($_POST['gender'])) {
         echo "Error: some fields are not set";
 
-    } else if (strlen($_POST['username']) > 20) {
+    } else if (strlen($_POST['username']) > 20) { //check if the username is too long
         echo "Error: username too long";
 
-    } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { //check for email pattern
         echo "Error: E-mail pattern not recognised";
 
     } else {

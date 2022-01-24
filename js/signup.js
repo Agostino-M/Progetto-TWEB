@@ -1,3 +1,10 @@
+/**
+ * This file contains all the listener and function to call the signup.php service in order to submit the new user.
+ * Some input checks are performed by listener functions
+ * @author  Agostino Messina
+ */
+
+//global variables
 let error_email;
 let error_email_confirm;
 let error_password;
@@ -8,6 +15,7 @@ let error_day;
 let error_gender;
 let is_touched = false;
 
+//document ready
 $(document).ready(function () {
     error_email = $('#error-email');
     error_email_confirm = $('#error-email-confirm');
@@ -40,7 +48,7 @@ $(document).ready(function () {
 
 });
 
-
+//submit listener for the signup form
 $('form').submit(function () {
     if ($('#email-confirm').val() !== $('#email').val()) {
         return null;
@@ -57,7 +65,6 @@ $('form').submit(function () {
             "gender": $("form input[type='radio']:checked").val(),
         },
         success: function (data) {
-            console.log(data);
             switch (data) {
                 case 'USERNAME_EXIST':
                     error_username.text("Questo username è già in uso");
@@ -78,11 +85,20 @@ $('form').submit(function () {
     });
 });
 
+/**
+ * email pattern validator
+ * @param email
+ * @returns {boolean}
+ */
 function isEmail(email) {
     var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
 }
 
+/**
+ * listener function for checking the email field and returning detailed errors to the view
+ * @param event
+ */
 function onEmailChange(event) {
     if ($('#email').val().length === 0) {
         error_email.text("Il campo e-mail non può essere vuoto");
@@ -102,6 +118,10 @@ function onEmailChange(event) {
     }
 }
 
+/**
+ * listener function for checking the confirm email field and returning detailed errors to the view
+ * @param event
+ */
 function onEmailConfirmChange(event) {
     is_touched = true;
     if ($('#email-confirm').val().length === 0) {
@@ -115,6 +135,10 @@ function onEmailConfirmChange(event) {
     }
 }
 
+/**
+ * listener function for checking the password field and returning detailed errors to the view
+ * @param event
+ */
 function onPasswordChange(event) {
     if ($('#password').val().length === 0) {
         error_password.text("Il campo password non può essere vuoto");
@@ -127,6 +151,10 @@ function onPasswordChange(event) {
     }
 }
 
+/**
+ * listener function for checking the username field and returning detailed errors to the view
+ * @param event
+ */
 function onUsernameChange(event) {
     if ($('#username').val().length === 0) {
         error_username.text("Il campo username non può essere vuoto");
@@ -136,6 +164,10 @@ function onUsernameChange(event) {
     }
 }
 
+/**
+ * listener function for checking the year field and returning detailed errors to the view
+ * @param event
+ */
 function onYearChange(event) {
     if ($('#year').val().length === 0) {
         error_year.text("Il campo anno non può essere vuoto");
@@ -154,6 +186,10 @@ function onYearChange(event) {
     }
 }
 
+/**
+ * listener function for checking the month field and returning detailed errors to the view
+ * @param event
+ */
 function onMonthChange(event) {
     if ($('#month').val() === null) {
         error_month.text("Il campo mese non può essere vuoto");
@@ -163,6 +199,10 @@ function onMonthChange(event) {
     }
 }
 
+/**
+ * listener function for checking the day field and returning detailed errors to the view
+ * @param event
+ */
 function onDayChange(event) {
     if ($('#day').val().length === 0) {
         error_day.text("Il campo giorno non può essere vuoto");
@@ -175,6 +215,10 @@ function onDayChange(event) {
     }
 }
 
+/**
+ * listener function for checking the gender field and returning detailed errors to the view
+ * @param event
+ */
 function onGenderChange(event) {
     if (checkSelectedGender()) {
         error_gender.text("Il campo sesso non può essere vuoto");
@@ -184,6 +228,10 @@ function onGenderChange(event) {
     }
 }
 
+/**
+ * check if a gender is selected
+ * @returns {boolean}
+ */
 function checkSelectedGender() {
     return ($('#gender_option_male:checked').length <= 0 &&
         $('#gender_option_female:checked').length <= 0 &&

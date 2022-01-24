@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <!--    Author: Agostino Messina
+        signup.php is the page for registering a new user.
+        All he needs to do is fill in the form with personal data that meet the specified requirements
+     -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +91,8 @@
                 <div id="div-day">
                     <label for="day">Giorno</label>
                     <input class="form-control" type="text" id="day" inputmode="numeric" maxlength="2" name="day"
-                           pattern="((0?[1-9])|([12][0-9])|(3[01]))" placeholder="GG" title="Inserisci il giorno" required>
+                           pattern="((0?[1-9])|([12][0-9])|(3[01]))" placeholder="GG" title="Inserisci il giorno"
+                           required>
                 </div>
             </div>
             <label id="error-year" class="control-label-validation" for="year">Errore</label>

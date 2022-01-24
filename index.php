@@ -6,6 +6,11 @@ if (!isset($_SESSION['username'])) {
     <html lang="en">
 
     <head>
+        <!--    Author: Agostino Messina
+            Index.php is the first page of the whole application.
+            Here you can log in for registered users,
+            or you can go to the registration page using the appropriate button below
+        -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
